@@ -1,3 +1,17 @@
+import React from "react";
+import LoginFrom from "./components/LoginFrom";
+
+const Home: React.FC = () => {
+  return (
+    <div>
+      <h1>Login</h1>
+      <LoginFrom />
+    </div>
+  );
+}
+export default Home;
+
+/*
 import Image from 'next/image'
 
 export default function Home() {
@@ -110,4 +124,4 @@ export default function Home() {
       </div>
     </main>
   )
-}
+} */
