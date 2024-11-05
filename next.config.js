@@ -4,7 +4,8 @@ const nextConfig = {
         return [
             {
                 source: '/users/login',
-                destination: ''
+                destination: 'http://localhost:5000/UserControllers/users/login',
+                permanent: false,
             },
         ];
 },

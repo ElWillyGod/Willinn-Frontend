@@ -1,53 +1,34 @@
-import React, { useState} from "react";
-import axios from "axios";
+import Link from 'next/link';
+import { Form } from 'src/app/fromLogin';
+import { customSignIn } from 'src/app/auth';
+import { SubmitButton } from 'src/app/submit-button';
 
-const LoginFrom: React.FC = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
-
-        try {
-            const response = await axios.post('/users/login', {
-                email,
-                password,
-            });
-
-            console.log('Todo bien1', response.data);
-            // Guardar token en localStorage
-            // localStorage.setItem('token', response.data.token);
-
-        } catch (error) {
-            setError('Todo mal Login');
-        }
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+export default function Login() {
+  return (
+    <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
+      <div className="z-10 w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
+        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+          <h3 className="text-xl font-semibold">Sign In</h3>
+          <p className="text-sm text-gray-500">
+            Inicie secion
+          </p>
+        </div>
+        <Form
+          action={async (formData: FormData) => {
+            'use server';
+            await customSignIn(formData.get('email') as string, formData.get('password') as string);
+          }}
+        >
+          <SubmitButton>Sign in</SubmitButton>
+          <p className="text-center text-sm text-gray-600">
+            {"Don't have an account? "}
+            <Link href="/register" className="font-semibold text-gray-800">
+              Sign up
+            </Link>
+            {' for free.'}
+          </p>
+        </Form>
       </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      {error && <p>{error}</p>}
-      <button type="submit">Login</button>
-    </form>
+    </div>
   );
 }
-
-export default LoginFrom;
