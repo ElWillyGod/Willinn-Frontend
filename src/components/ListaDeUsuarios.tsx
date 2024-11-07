@@ -35,7 +35,7 @@ export default function ListaUsurios() {
                   "Content-Type": "application/json",
               }
           });
-          if (response.status === 200) {
+          if (response.status === 204) {
               const updateList = users.filter(user => user.id !== userId);
               setUsers(updateList);
           }
