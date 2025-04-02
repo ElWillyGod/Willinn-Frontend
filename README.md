@@ -1,8 +1,8 @@
-# Willinn-Frontend
+# P-Frontend
 
 ## Descripción
 
-Willinn-Frontend es una aplicación web desarrollada con Next.js y React que permite la gestión de usuarios. La aplicación incluye funcionalidades como el inicio de sesión, la visualización de una lista de usuarios, la adición y actualización de usuarios, y más.
+P-Frontend es una aplicación web desarrollada con Next.js y React que permite la gestión de usuarios. La aplicación incluye funcionalidades como el inicio de sesión, la visualización de una lista de usuarios, la adición y actualización de usuarios, y más.
 
 ## Dependencias
 
