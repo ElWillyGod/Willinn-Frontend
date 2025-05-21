@@ -55,5 +55,3 @@ P-Frontend es una aplicación web desarrollada con Next.js y React que permite l
 El proyecto utiliza variables de entorno definidas en el archivo `next.config.js`. Asegúrate de configurar las variables de entorno necesarias antes de ejecutar la aplicación.
 
 ---
-
-¡Gracias por usar Willinn-Frontend!
